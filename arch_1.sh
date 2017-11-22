@@ -1,4 +1,5 @@
 #!/bin/bash
+#Author Alex Boyko 
 loadkeys ru
 setfont cyr-sun16
 echo 'Скрипт сделан на основе чеклиста Бойко Алексея по Установке ArchLinux'
