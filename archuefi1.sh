@@ -3,12 +3,8 @@
 # Arch Linux Fast Install - Быстрая установка Arch Linux https://github.com/ordanax/arch2018
 # Цель скрипта - быстрое развертывание системы с вашими персональными настройками (конфиг XFCE, темы, программы и т.д.).
 
-# В разработке принимали участие:
-# Алексей Бойко https://vk.com/ordanax
-# Степан Скрябин https://vk.com/zurg3
-# Михаил Сарвилин https://vk.com/michael170707
-# Данил Антошкин https://vk.com/danil.antoshkin
-# Юрий Порунцов https://vk.com/poruncov
+# Автор скрипта Алексей Бойко https://vk.com/ordanax
+
 
 loadkeys ru
 setfont cyr-sun16
@@ -20,34 +16,26 @@ timedatectl set-ntp true
 
 echo '2.4 создание разделов'
 (
-  echo o;
+ echo g;
 
-  echo n;
-  echo;
-  echo;
-  echo;
-  echo +100M;
+ echo n;
+ echo 1;
+ echo;
+ echo +500M;
+ echo t;
+ echo 1;
 
-  echo n;
-  echo;
-  echo;
-  echo;
-  echo +20G;
-
-  echo n;
-  echo;
-  echo;
-  echo;
-  echo +1024M;
-
-  echo n;
-  echo p;
-  echo;
-  echo;
-  echo a;
-  echo 1;
-
-  echo w;
+ echo n;
+ echo 2;
+ echo;
+ echo +20G;
+  
+ echo n;
+ echo 3;
+ echo;
+ echo;
+  
+ echo w;
 ) | fdisk /dev/sda
 
 echo 'Ваша разметка диска'
