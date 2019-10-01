@@ -62,15 +62,8 @@ fi
 echo 'Ставим иксы и драйвера'
 pacman -S $gui_install
 
-echo "Какое DE ставим?"
-read -p "1 - XFCE, 2 - KDE, 3 - Openbox: " vm_setting
-if [[ $vm_setting == 1 ]]; then
-  pacman -S xfce4 xfce4-goodies --noconfirm
-elif [[ $vm_setting == 2 ]]; then
-  pacman -Sy plasma-meta kdebase --noconfirm
-elif [[ $vm_setting == 3 ]]; then  
-  pacman -S  openbox xfce4-terminal
-fi
+echo "Ставим XFCE"
+pacman -S xfce4 xfce4-goodies --noconfirm
 
 echo 'Cтавим DM'
 pacman -S lxdm --noconfirm
@@ -87,5 +80,5 @@ systemctl enable NetworkManager
 
 echo 'Установка завершена! Перезагрузите систему.'
 echo 'Если хотите подключить AUR, установить мои конфиги XFCE, тогда после перезагрзки и входа в систему, установите wget (sudo pacman -S wget) и выполните команду:'
-echo 'wget git.io/arch3.sh && sh arch3.sh'
+echo 'wget git.io/archuefi3.sh && sh archuefi3.sh'
 exit
