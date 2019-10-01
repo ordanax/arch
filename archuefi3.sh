@@ -32,7 +32,7 @@ if [[ $xfce_set == 1 ]]; then
   # tar -czf xfce4.tar.gz .config/xfce4
   # Выгрузите архив в интернет и скорректируйте ссылку на XFCE файл заменив ссылку на свою.
   # wget git.io/xfce4.tar.gz
-  wget https://github.com/ordanax/arch2018/raw/master/attach/xfce4.tar.gz
+  wget https://github.com/ordanax/arch/raw/master/attach/xfce4.tar.gz
   sudo rm -rf ~/.config/xfce4/panel/
   sudo rm -rf ~/.config/xfce4/*
   sudo tar -xzf xfce4.tar.gz -C ~/
@@ -52,22 +52,6 @@ elif [[ $xfce_set == 0 ]]; then
   echo 'Установка конфигов XFCE пропущена.'
 fi 
   
-echo 'Скачать и установить конфиг и темы для Openbox?'
-read -p "1 - Да, 0 - Нет: " openbox_set
-if [[ $openbox_set == 1 ]]; then
-  echo 'Качаем и устанавливаем настройки Openbox'
-  #wget git.io/openbox.tar.gz
-  #sudo tar -xzf openbox.tar.gz -C ~/
-  #wget git.io/tint2.tar.gz
-  #sudo tar -xzf tint2.tar.gz -C ~/
-  wget https://github.com/ordanax/arch2018/raw/master/attach/config.tar.gz
-  sudo tar -xzf config.tar.gz -C ~/
-  yay -S obconf obmenu-generator obkey-git lxappearance-obconf tint2 nitrogen thunar mousepad wmctrl compton papirus-icon-theme
-  sudo pacman -S capitaine-cursors
-elif [[ $openbox_set == 0 ]]; then
-  echo 'Установка конфигов Openbox пропущена.'
-fi  
-
 echo 'Убираем меню граб для выбора системы?'
 read -p "1 - Да, 0 - Нет: " grub_set
 if [[ $grub_set == 1 ]]; then
