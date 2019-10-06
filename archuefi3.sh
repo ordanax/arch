@@ -37,7 +37,7 @@ if [[ $xfce_set == 1 ]]; then
   sudo rm -rf ~/.config/xfce4/*
   sudo tar -xzf xfce4.tar.gz -C ~/
   echo 'Установка тем'
-  yay -S osx-arc-shadow papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
+  yay -S osx-arc-shadow papirus-maia-icon-theme-git breeze-default-cursor-theme ttf-roboto --noconfirm
   sudo pacman -S capitaine-cursors
   
   echo 'Ставим лого ArchLinux в меню'
