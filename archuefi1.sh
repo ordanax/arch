@@ -28,7 +28,7 @@ echo '2.4 создание разделов'
  echo n;
  echo 2;
  echo;
- echo +20G;
+ echo +30G;
   
  echo n;
  echo 3;
@@ -43,7 +43,7 @@ fdisk -l
 
 echo '2.4.2 Форматирование дисков'
 
-mkfs.fat -F32 /dev/sd1
+mkfs.fat -F32 /dev/sda1
 mkfs.ext4  /dev/sda2
 mkfs.ext4  /dev/sda3
 
