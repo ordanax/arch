@@ -19,19 +19,19 @@ echo '2.4 создание разделов'
  echo g;
 
  echo n;
- echo 1;
+ echo ;
  echo;
  echo +300M;
  echo t;
  echo 1;
 
  echo n;
- echo 2;
+ echo;
  echo;
  echo +30G;
   
  echo n;
- echo 3;
+ echo;
  echo;
  echo;
   
@@ -58,7 +58,7 @@ echo '3.1 Выбор зеркал для загрузки. Ставим зерк
 echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
-pacstrap /mnt base base-devel linux
+pacstrap /mnt base base-devel linux linux-firmware
 
 echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
