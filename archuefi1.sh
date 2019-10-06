@@ -51,7 +51,7 @@ echo '2.4.3 Монтирование дисков'
 mount /dev/sda2 /mnt
 mkdir /mnt/home
 mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mount /dev/sda1 /mnt/boot
 mount /dev/sda3 /mnt/home
 
 echo '3.1 Выбор зеркал для загрузки. Ставим зеркало от Яндекс'
