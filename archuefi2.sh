@@ -23,6 +23,14 @@ echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
 echo 'Создадим загрузочный RAM диск'
 mkinitcpio -p linux
 
+echo '3.5 Устанавливаем загрузчик'
+pacman -Syy
+pacman -S grub efibootmgr --noconfirm 
+grub-install /dev/sda
+
+echo 'Обновляем grub.cfg'
+grub-mkconfig -o /boot/grub/grub.cfg
+
 echo 'Ставим программу для Wi-fi'
 pacman -S dialog wpa_supplicant --noconfirm 
 
@@ -69,8 +77,6 @@ pacman -S networkmanager network-manager-applet ppp --noconfirm
 
 echo 'Подключаем автозагрузку менеджера входа и интернет'
 systemctl enable NetworkManager
-
-wget https://git.io/uefi.sh && sh uefi.sh
 
 echo 'Установка завершена! Перезагрузите систему.'
 echo 'Если хотите подключить AUR, установить мои конфиги XFCE, тогда после перезагрзки и входа в систему, установите wget (sudo pacman -S wget) и выполните команду:'
