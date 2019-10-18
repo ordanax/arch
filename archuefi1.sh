@@ -64,7 +64,7 @@ wget https://git.io/mirrorlist
 mv -f ~/mirrorlist /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
-pacstrap /mnt base base-devel linux linux-firmware nano dhcpcd
+pacstrap /mnt base base-devel linux linux-firmware nano dhcpcd netctl
 
 echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
