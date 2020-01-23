@@ -1,5 +1,5 @@
 ##############################################
-# ArchLinux Fast Install v2.0
+# ArchLinux Fast Install v2.1
 ##############################################
 
 # Описание
@@ -62,5 +62,5 @@ Cостоит из 3 частей.
 
 
 # История изменений
-
-### 1.10.2019 ArchLinux Fast Install v2.0
+### 24.01.2020 ArchLinux Fast Install v2.1 На выбор добавлен i3wv с моими конфигами
+### 01.10.2019 ArchLinux Fast Install v2.0 Переход на UEFI
