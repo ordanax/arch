@@ -51,7 +51,20 @@ if [[ $xfce_set == 1 ]]; then
 elif [[ $xfce_set == 0 ]]; then
   echo 'Установка конфигов XFCE пропущена.'
 fi 
-  
+
+echo "Ставим i3 с моими настройками?"
+read -p "1 - Да, 2 - Нет" vm_setting
+if [[ $vm_setting == 1 ]]; then
+    pacman -S i3-wm i3-gaps i3status sbxkb dmenu pcmanfm ttf-font-awesome feh lxappearance thunar gvfs udiskie xorg-xbacklight ristretto tumbler compton --noconfirm
+    yay -S polybar
+    wget https://github.com/ordanax/dots/raw/master/i3wm_v_2/i3wm_config.tar.gz
+    sudo rm -rf ~/.config/i3/*
+    sudo rm -rf ~/.config/polybar/*
+    sudo tar -xzf i3wm_config.tar.gz -C ~/
+elif [[ $vm_setting == 2 ]]; then
+  echo 'Пропускаем.'
+fi
+
 echo 'Убираем меню граб для выбора системы?'
 read -p "1 - Да, 0 - Нет: " grub_set
 if [[ $grub_set == 1 ]]; then
