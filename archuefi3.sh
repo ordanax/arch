@@ -36,6 +36,8 @@ if [[ $xfce_set == 1 ]]; then
   sudo rm -rf ~/.config/xfce4/panel/
   sudo rm -rf ~/.config/xfce4/*
   sudo tar -xzf xfce4.tar.gz -C ~/
+  echo 'Удаление тем по умолчанию'
+  sudo rm -rf /usr/share/themes/*
   echo 'Установка тем'
   yay -S osx-arc-shadow papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
   sudo pacman -S capitaine-cursors
