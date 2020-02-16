@@ -20,6 +20,11 @@ echo 'Вписываем KEYMAP=ru FONT=cyr-sun16'
 echo 'KEYMAP=ru' >> /etc/vconsole.conf
 echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
 
+echo 'Подписываем репозитории'
+pacman-key --init
+pacman-key --populate archlinux
+pacman -Syu
+
 echo 'Создадим загрузочный RAM диск'
 mkinitcpio -p linux
 
