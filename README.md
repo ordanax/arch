@@ -10,9 +10,9 @@
 Cкрипт основан на моем чек листе ручной установке ArchLinux https://vk.cc/7JTg6U
 Этот скрипт работает с UEFI. Для работы с Legasy/BIOS используйте предыдущий скрипт https://github.com/ordanax/arch2018
 
-Cостоит из 3 частей.
-1-й и 2-й - это базовая установка Arch Linux c XFCE
-3-й - мой конфиг системы. Подключение AUR, кастомизация XFCE, установка нужных программ, авто вход и т.д.
+Cостоит из 3 частей.  
+1-й и 2-й - это базовая установка Arch Linux c XFCE  
+3-й - мой конфиг системы. Подключение AUR, кастомизация XFCE, установка нужных программ, авто вход и т.д.  
 
 # Установка 
 1) Скачать и записать на флешку ISO образ Arch Linux https://www.archlinux.org/download/
@@ -51,15 +51,11 @@ Cостоит из 3 частей.
 
 Помогали в разработке: 
 
-Степан Скрябин https://vk.com/zurg3
-
-Михаил Сарвилин https://vk.com/michael170707
-
-Данил Антошкин https://vk.com/danil.antoshkin
-
-Юрий Порунцов https://vk.com/poruncov
-
-Alex Creio https://vk.com/creio
+Степан Скрябин https://vk.com/zurg3  
+Михаил Сарвилин https://vk.com/michael170707  
+Данил Антошкин https://vk.com/danil.antoshkin  
+Юрий Порунцов https://vk.com/poruncov  
+Alex Creio https://vk.com/creio  
 
 
 # Контакты
