@@ -99,6 +99,8 @@ fi
 #su -c 'echo "[Service]" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
 #su -c 'echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
 #su -c 'echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
+#sudo systemctl disable lxdm
+#sudo pacman -R lxdm
 
 elif [[ $node_set == 0 ]]; then
   echo 'Пропускаем.'
