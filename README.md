@@ -50,9 +50,13 @@ Cостоит из 3 частей.
 Помогали в разработке: 
 
 Степан Скрябин https://vk.com/zurg3
+
 Михаил Сарвилин https://vk.com/michael170707
+
 Данил Антошкин https://vk.com/danil.antoshkin
+
 Юрий Порунцов https://vk.com/poruncov
+
 Alex Creio https://vk.com/creio
 
 
