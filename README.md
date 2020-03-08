@@ -1,5 +1,5 @@
 ##############################################
-# ArchLinux Fast Install v2.1
+# ArchLinux Fast Install v2.2
 ##############################################
 
 # Описание
@@ -50,17 +50,17 @@ Cостоит из 3 частей.
 Помогали в разработке: 
 
 Степан Скрябин https://vk.com/zurg3
-
 Михаил Сарвилин https://vk.com/michael170707
-
 Данил Антошкин https://vk.com/danil.antoshkin
-
 Юрий Порунцов https://vk.com/poruncov
+Alex Creio https://vk.com/creio
+
 
 # Контакты
 Наша группа по Arch Linux https://vk.com/arch4u
 
 
 # История изменений
+### 08.03.2020 ArchLinux Fast Install v2.2 В archuefi3.sh добавлен выбор автовхода без DE
 ### 24.01.2020 ArchLinux Fast Install v2.1 На выбор добавлен i3wv с моими конфигами
 ### 01.10.2019 ArchLinux Fast Install v2.0 Переход на UEFI
