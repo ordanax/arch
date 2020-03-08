@@ -32,14 +32,13 @@ echo 'Скачать и установить конфиг и темы для XFC
 read -p "1 - Да, 0 - Нет: " xfce_set
 if [[ $xfce_set == 1 ]]; then
   echo 'Качаем и устанавливаем настройки Xfce'
-  # Чтобы сделать копию ваших настоек XFCE перейдите в домашнюю директорию ~/username открйте в этой категории терминал и выполните команду ниже.
-  # tar -czf xfce4.tar.gz .config/xfce4
-  # Выгрузите архив в интернет и скорректируйте ссылку на XFCE файл заменив ссылку на свою.
-  # wget git.io/xfce4.tar.gz
-  wget https://github.com/ordanax/arch/raw/master/attach/xfce4.tar.gz
+  # Чтобы сделать копию ваших настоек перейдите в домашнюю директорию ~/username открйте в этой категории терминал и выполните команду ниже.
+  # tar -czf config.tar.gz .config
+  # Выгрузите архив в интернет и скорректируйте ссылку на свою.
+  wget https://github.com/ordanax/arch/blob/master/attach/config.tar.gz
   sudo rm -rf ~/.config/xfce4/panel/
   sudo rm -rf ~/.config/xfce4/*
-  sudo tar -xzf xfce4.tar.gz -C ~/
+  sudo tar -xzf config.tar.gz -C ~/
   echo 'Удаление тем по умолчанию'
   sudo rm -rf /usr/share/themes/*
   echo 'Установка тем'
