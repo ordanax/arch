@@ -63,6 +63,6 @@ Alex Creio https://vk.com/creio
 
 
 # История изменений
-### 08.03.2020 ArchLinux Fast Install v2.2 В archuefi3.sh добавлен выбор автовхода без DE
+### 08.03.2020 ArchLinux Fast Install v2.2 В archuefi3.sh добавлен выбор автовхода без DE. Устранена проблема установки программ из-за ошибок при сборки пакетов из AUR.
 ### 24.01.2020 ArchLinux Fast Install v2.1 На выбор добавлен i3wv с моими конфигами
 ### 01.10.2019 ArchLinux Fast Install v2.0 Переход на UEFI
