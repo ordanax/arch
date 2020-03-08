@@ -95,6 +95,7 @@ cd ~/
 wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xinitrc
 sudo rm -rf ~/.bashrc
 wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.bashrc
+su -c 'read -p "Введите ваш логин: " nodelogin && echo "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
 sudo systemctl disable lxdm
 sudo pacman -R lxdm
 
