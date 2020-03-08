@@ -2,11 +2,6 @@
 read -p "Введите имя компьютера: " hostname
 read -p "Введите имя пользователя: " username
 
-#Для автологина без DE
-echo "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf
-echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf
-echo "ExecStart=-/usr/bin/agetty --autologin $username --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf
-
 echo 'Прописываем имя компьютера'
 echo $hostname > /etc/hostname
 ln -svf /usr/share/zoneinfo/Asia/Yekaterinburg /etc/localtime
