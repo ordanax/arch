@@ -96,9 +96,9 @@ wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xinitrc
 sudo rm -rf ~/.bashrc
 wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.bashrc
 read -p "Введите ваш логин: " nodelogin
-echo "[Service]" > /etc/systemd/system/getty@tty1.service.d
-echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d
-echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d
+echo "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf
+echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf
+echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf
 
 elif [[ $node_set == 0 ]]; then
   echo 'Пропускаем.'
