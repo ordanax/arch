@@ -3,7 +3,7 @@ flameshot-git
 xflux
 sublime-text-dev
 hunspell-ru
-pamac-aur
+pamac-aur-git
 megasync
 trello
 todoist-linux-bin
