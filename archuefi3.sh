@@ -39,7 +39,7 @@ if [[ $xfce_set == 1 ]]; then
   echo 'Удаление тем по умолчанию'
   sudo rm -rf /usr/share/themes/*
   echo 'Установка тем'
-  yay -S osx-arc-shadow papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
+  yay -S x-arc-darker papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
   sudo pacman -S capitaine-cursors
   
   echo 'Ставим лого ArchLinux в меню'
