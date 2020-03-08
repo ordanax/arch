@@ -86,6 +86,24 @@ elif [[ $grub_set == 0 ]]; then
   echo 'Пропускаем.'
 fi
 
+echo 'Убираем DE?'
+read -p "1 - Да, 0 - Нет: " node_set
+if [[ $node_set == 1 ]]; then
+sudo pacman -S xorg-xinit
+cp /etc/X11/xinit/xserverrc ~/.xserverrc
+cd ~/
+wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xinitrc
+sudo rm -rf ~/.bashrc
+wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.bashrc
+read -p "Введите ваш логин: " nodelogin
+echo "[Service]" > /etc/systemd/system/getty@tty1.service.d
+echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d
+echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d
+
+elif [[ $node_set == 0 ]]; then
+  echo 'Пропускаем.'
+fi
+
 echo 'Установить conky?'
 read -p "1 - Да, 0 - Нет: " conky_set
 if [[ $conky_set == 1 ]]; then
