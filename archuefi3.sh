@@ -46,7 +46,7 @@ if [[ $xfce_set == 1 ]]; then
   sudo pacman -S capitaine-cursors
   echo 'Установка темы OSX-Arc-Shadow'
   wget https://github.com/thiagolucio/OSX-Arc-Shadow/archive/master.zip
-  sudo unzip OSX-Arc-Shadow-master.zip
+  7z x master.zip
   sudo mv -f ~/downloads/OSX-Arc-Shadow-master /usr/share/themes
   
   echo 'Ставим лого ArchLinux в меню'
