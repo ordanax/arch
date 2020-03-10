@@ -35,7 +35,7 @@ if [[ $xfce_set == 1 ]]; then
   # Чтобы сделать копию ваших настоек перейдите в домашнюю директорию ~/username открйте в этой категории терминал и выполните команду ниже.
   # tar -czf config.tar.gz .config
   # Выгрузите архив в интернет и скорректируйте ссылку на свою.
-  wget https://github.com/ordanax/arch/blob/master/attach/config.tar.gz
+  wget https://github.com/ordanax/arch/raw/master/attach/config.tar.gz
   sudo rm -rf ~/.config/xfce4/panel/
   sudo rm -rf ~/.config/xfce4/*
   sudo tar -xzf config.tar.gz -C ~/
