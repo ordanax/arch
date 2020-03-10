@@ -74,28 +74,27 @@ elif [[ $vm_setting == 2 ]]; then
   echo 'Пропускаем.'
 fi
 
-echo 'Убираем меню граб для выбора системы?'
-read -p "1 - Да, 0 - Нет: " grub_set
-if [[ $grub_set == 1 ]]; then
-  wget git.io/grub.tar.gz
-  sudo tar -xzf grub.tar.gz -C /
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-elif [[ $grub_set == 0 ]]; then
-  echo 'Пропускаем.'
-fi
+#echo 'Убираем меню граб для выбора системы?'
+#read -p "1 - Да, 0 - Нет: " grub_set
+#if [[ $grub_set == 1 ]]; then
+#  wget git.io/grub.tar.gz
+#  sudo tar -xzf grub.tar.gz -C /
+#  sudo grub-mkconfig -o /boot/grub/grub.cfg
+#elif [[ $grub_set == 0 ]]; then
+#  echo 'Пропускаем.'
+#fi
 
-echo 'Убираем DE?'
-read -p "1 - Да, 0 - Нет: " node_set
-if [[ $node_set == 1 ]]; then
-sudo pacman -S xorg-xinit
-cp /etc/X11/xinit/xserverrc ~/.xserverrc
-wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xinitrc
-sudo rm -rf ~/.bashrc
-wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.bashrc
-su -c 'read -p "Введите ваш логин: " nodelogin && echo "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
-sudo systemctl disable lxdm
-sudo pacman -R lxdm
-
+#echo 'Убираем DE?'
+#read -p "1 - Да, 0 - Нет: " node_set
+#if [[ $node_set == 1 ]]; then
+#sudo pacman -S xorg-xinit
+#cp /etc/X11/xinit/xserverrc ~/.xserverrc
+#wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xinitrc
+#sudo rm -rf ~/.bashrc
+#wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.bashrc
+#su -c 'read -p "Введите ваш логин: " nodelogin && echo "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
+#sudo systemctl disable lxdm
+#sudo pacman -R lxdm
 elif [[ $node_set == 0 ]]; then
   echo 'Пропускаем.'
 fi
