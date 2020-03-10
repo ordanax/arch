@@ -94,9 +94,9 @@ fi
 #su -c 'read -p "Введите ваш логин: " nodelogin && echo "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf && echo "ExecStart=-/usr/bin/agetty --autologin $nodelogin --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf'
 #sudo systemctl disable lxdm
 #sudo pacman -R lxdm
-elif [[ $node_set == 0 ]]; then
-  echo 'Пропускаем.'
-fi
+#elif [[ $node_set == 0 ]]; then
+#  echo 'Пропускаем.'
+#fi
 
 echo 'Установить conky?'
 read -p "1 - Да, 0 - Нет: " conky_set
