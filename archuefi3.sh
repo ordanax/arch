@@ -115,5 +115,6 @@ echo 'Добавляем в автозагрузку:'
 sudo systemctl enable ufw
 
 rm -R ~/downloads/
+rm -rf ~/archuefi3.sh
 
 echo 'Установка завершена!'
