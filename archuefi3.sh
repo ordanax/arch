@@ -22,7 +22,6 @@ if [[ $prog_set == 1 ]]; then
   sudo pacman -S recoll obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive screenfetch vlc qbittorrent galculator gnome-disk-utility telegram-desktop opera --noconfirm
   wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.aurlist.txt
   yay -S --noconfirm - < .aurlist.txt
-  sudo rm -rf ~/.config/xfce4/*
 elif [[ $prog_set == 0 ]]; then
   echo 'Установка программ пропущена.'
 fi
