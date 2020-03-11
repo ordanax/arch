@@ -1,5 +1,5 @@
 ##############################################
-# ArchLinux Fast Install v2.2
+# ArchLinux Fast Install v2.2.1
 ##############################################
 
 # Описание
@@ -63,6 +63,7 @@ Alex Creio https://vk.com/creio
 
 
 # История изменений
+### 11.03.2020  ArchLinux Fast Install v2.2.1 Исправлены баги в 3-м скрипте
 ### 08.03.2020 ArchLinux Fast Install v2.2 В archuefi3.sh добавлен выбор автовхода без DE. Устранена проблема установки программ из-за ошибок при сборки пакетов из AUR.
 ### 24.01.2020 ArchLinux Fast Install v2.1 На выбор добавлен i3wv с моими конфигами
 ### 01.10.2019 ArchLinux Fast Install v2.0 Переход на UEFI
