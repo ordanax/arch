@@ -4,7 +4,7 @@ xflux
 sublime-text-dev
 hunspell-ru
 pamac-aur-git
-megasync
+megasync-nopdfium
 trello
 todoist-linux-bin
 xorg-xkill
