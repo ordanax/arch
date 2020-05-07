@@ -13,13 +13,13 @@ sudo pacman -S xdg-user-dirs --noconfirm
 xdg-user-dirs-update
 
 echo 'Установка базовых программ и пакетов'
-sudo pacman -S firefox firefox-i18n-ru ufw f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils file-roller p7zip unrar gvfs aspell-ru pulseaudio pavucontrol --noconfirm
+sudo pacman -S reflector firefox firefox-i18n-ru ufw f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils file-roller p7zip unrar gvfs aspell-ru pulseaudio pavucontrol --noconfirm
 
 echo 'Установить рекомендумые программы?'
 read -p "1 - Да, 0 - Нет: " prog_set
 if [[ $prog_set == 1 ]]; then
   #Можно заменить на pacman -Qqm > ~/.pacmanlist.txt
-  sudo pacman -S recoll obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive screenfetch vlc qbittorrent galculator gnome-disk-utility telegram-desktop opera --noconfirm
+  sudo pacman -S recoll obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive neofetch vlc qbittorrent galculator telegram-desktop --noconfirm
   wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.aurlist.txt
   yay -S --noconfirm - < .aurlist.txt
 elif [[ $prog_set == 0 ]]; then
