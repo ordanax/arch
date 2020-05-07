@@ -6,5 +6,5 @@ hunspell-ru
 pamac-aur-git
 megasync-nopdfium
 trello
-todoist-linux-bin
+minder-git
 xorg-xkill
