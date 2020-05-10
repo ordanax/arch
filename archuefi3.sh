@@ -42,12 +42,8 @@ if [[ $xfce_set == 1 ]]; then
   echo 'Удаление тем по умолчанию'
   sudo rm -rf /usr/share/themes/*
   echo 'Установка тем'
-  yay -S papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
+  yay -S x-arc-shadow papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
   sudo pacman -S capitaine-cursors
-  echo 'Установка темы OSX-Arc-Shadow'
-  wget https://github.com/thiagolucio/OSX-Arc-Shadow/archive/master.zip
-  7z x master.zip
-  sudo mv -f ~/downloads/OSX-Arc-Shadow-master /usr/share/themes
   
   echo 'Ставим лого ArchLinux в меню'
   wget git.io/arch_logo.png
@@ -61,18 +57,18 @@ elif [[ $xfce_set == 0 ]]; then
   echo 'Установка конфигов XFCE пропущена.'
 fi 
 
-echo "Ставим i3 с моими настройками?"
-read -p "1 - Да, 2 - Нет: " vm_setting
-if [[ $vm_setting == 1 ]]; then
-    pacman -S i3-wm i3-gaps i3status sbxkb dmenu pcmanfm ttf-font-awesome feh lxappearance thunar gvfs udiskie xorg-xbacklight ristretto tumbler compton --noconfirm
-    yay -S polybar
-    wget https://github.com/ordanax/dots/raw/master/i3wm_v_2/i3wm_config.tar.gz
-    sudo rm -rf ~/.config/i3/*
-    sudo rm -rf ~/.config/polybar/*
-    sudo tar -xzf i3wm_config.tar.gz -C ~/
-elif [[ $vm_setting == 2 ]]; then
-  echo 'Пропускаем.'
-fi
+#echo "Ставим i3 с моими настройками?"
+#read -p "1 - Да, 2 - Нет: " vm_setting
+#if [[ $vm_setting == 1 ]]; then
+#    pacman -S i3-wm i3-gaps i3status sbxkb dmenu pcmanfm ttf-font-awesome feh lxappearance thunar gvfs udiskie xorg-xbacklight ristretto tumbler compton --noconfirm
+#    yay -S polybar
+#    wget https://github.com/ordanax/dots/raw/master/i3wm_v_2/i3wm_config.tar.gz
+#    sudo rm -rf ~/.config/i3/*
+#    sudo rm -rf ~/.config/polybar/*
+#    sudo tar -xzf i3wm_config.tar.gz -C ~/
+#elif [[ $vm_setting == 2 ]]; then
+#  echo 'Пропускаем.'
+#fi
 
 #echo 'Убираем меню граб для выбора системы?'
 #read -p "1 - Да, 0 - Нет: " grub_set
