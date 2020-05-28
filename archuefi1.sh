@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Arch Linux Fast Install - Быстрая установка Arch Linux https://github.com/ordanax/arch2018
+# Arch Linux Fast Install - Быстрая установка Arch Linux https://github.com/ordanax/arch
 # Цель скрипта - быстрое развертывание системы с вашими персональными настройками (конфиг XFCE, темы, программы и т.д.).
-
 # Автор скрипта Алексей Бойко https://vk.com/ordanax
 
 
@@ -70,3 +69,4 @@ echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt sh -c "$(curl -fsSL git.io/archuefi2.sh)"
+arch-chroot /mnt sh -c "$(curl -fsSL git.io/archuefi3.sh)"
