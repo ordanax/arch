@@ -44,7 +44,7 @@ if [[ $xfce_set == 1 ]]; then
   sudo rm -rf /usr/share/themes/*
   echo 'Установка тем'
   yay -S x-arc-shadow papirus-maia-icon-theme-git breeze-default-cursor-theme --noconfirm
-  sudo pacman -S capitaine-cursors
+  sudo pacman -S capitaine-cursors --noconfirm
   
   echo 'Ставим лого ArchLinux в меню'
   wget git.io/arch_logo.png
@@ -76,7 +76,7 @@ read -p "1 - Да, 0 - Нет: " node_set
 if [[ $node_set == 1 ]]; then
 sudo systemctl disable lxdm
 sudo pacman -R lxdm
-sudo pacman -S xorg-xinit
+sudo pacman -S xorg-xinit --noconfirm
 cp /etc/X11/xinit/xserverrc ~/.xserverrc
 wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xinitrc
 sudo mv -f .xinitrc ~/.xinitrc
