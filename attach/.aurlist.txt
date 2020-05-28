@@ -6,6 +6,6 @@ hunspell-ru
 pamac-aur-git
 megasync-nopdfium
 trello
-gtksourceview3-3.24.11-1
+gtksourceview3
 minder-git
 xorg-xkill
