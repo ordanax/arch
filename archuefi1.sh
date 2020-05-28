@@ -62,7 +62,7 @@ echo '3.1 Выбор зеркал для загрузки.'
 #wget https://git.io/mirrorlist
 #mv -f ~/mirrorlist /etc/pacman.d/mirrorlist
 pacman -S reflector --noconfirm
-reflector --verbose --country 'Russia' -l 10 -p http --sort rate --save /etc/pacman.d/mirrorlist
+reflector --verbose  -l 5 -p https --sort rate --save /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
 pacstrap /mnt base base-devel linux linux-firmware nano dhcpcd netctl
