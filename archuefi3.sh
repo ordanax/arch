@@ -52,7 +52,7 @@ if [[ $xfce_set == 1 ]]; then
 
   echo 'Ставим обои на рабочий стол'
   wget git.io/bg.jpg
-  sudo rm -rf /usr/share/backgrounds/xfce/* #Удаляем стандартрые обои
+  sudo rm -rf /usr/share/backgrounds/xfce/* #Удаляем стандартные обои
   sudo mv -f ~/downloads/bg.jpg /usr/share/backgrounds/xfce/bg.jpg
 elif [[ $xfce_set == 0 ]]; then
   echo 'Установка конфигов XFCE пропущена.'
