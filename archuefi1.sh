@@ -61,6 +61,7 @@ echo '3.1 Выбор зеркал для загрузки.'
 #rm -rf /etc/pacman.d/mirrorlist
 #wget https://git.io/mirrorlist
 #mv -f ~/mirrorlist /etc/pacman.d/mirrorlist
+pacman -S reflector --noconfirm
 reflector --verbose --country 'Russia' -l 10 -p http --sort rate --save /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
