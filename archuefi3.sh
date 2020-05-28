@@ -21,6 +21,7 @@ if [[ $prog_set == 1 ]]; then
   #Можно заменить на pacman -Qqm > ~/.pacmanlist.txt
   sudo pacman -S recoll chromium obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive neofetch vlc qbittorrent galculator telegram-desktop --noconfirm
   wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.aurlist.txt
+  yay -Syy
   yay -S --noconfirm - < .aurlist.txt
 elif [[ $prog_set == 0 ]]; then
   echo 'Установка программ пропущена.'
