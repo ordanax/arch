@@ -109,7 +109,9 @@ sudo ufw enable
 echo 'Добавляем в автозагрузку:'
 sudo systemctl enable ufw
 
+# Очистка
 rm -R ~/downloads/
 rm -rf ~/archuefi3.sh
+rm -rf ~/.aurlist.txt
 
 echo 'Установка завершена!'
