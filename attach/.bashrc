@@ -12,3 +12,4 @@ fi
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 alias tb="nc termbin.com 9999"
+alias up="sudo reflector --verbose  -l 5 -p https --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syyu &&  yay -Syu --noconfirm && sudo pacman -Rsn $(pacman -Qdtq)"
