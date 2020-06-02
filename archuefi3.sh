@@ -22,6 +22,7 @@ if [[ $prog_set == 1 ]]; then
   wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.aurlist.txt
   yay -Syy
   yay -S --noconfirm - < .aurlist.txt
+  rm -rf ~/.aurlist.txt
 elif [[ $prog_set == 0 ]]; then
   echo 'Установка программ пропущена.'
 fi
@@ -47,6 +48,11 @@ if [[ $xfce_set == 1 ]]; then
   echo 'Ставим лого ArchLinux в меню'
   wget git.io/arch_logo.png
   sudo mv -f ~/downloads/arch_logo.png /usr/share/pixmaps/arch_logo.png
+  
+  echo 'Сносим лишнее'
+  wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xfce-delete-modules-list.txt
+  yay -Rs --noconfirm - < .xfce-delete-modules-list.txt
+  rm -rf .xfce-delete-modules-list.txt
 
   echo 'Ставим обои на рабочий стол'
   wget git.io/bg.jpg
@@ -69,6 +75,16 @@ fi
 #  echo 'Пропускаем.'
 #fi
 
+echo 'Установить conky?'
+read -p "1 - Да, 0 - Нет: " conky_set
+if [[ $conky_set == 1 ]]; then
+  sudo pacman -S conky conky-manager --noconfirm
+  wget git.io/conky.tar.gz
+  tar -xzf conky.tar.gz -C ~/
+elif [[ $conky_set == 0 ]]; then
+  echo 'Установка conky пропущена.'
+fi
+
 echo 'Делаем авто вход без DE?'
 read -p "1 - Да, 0 - Нет: " node_set
 if [[ $node_set == 1 ]]; then
@@ -85,20 +101,10 @@ wget https://raw.githubusercontent.com/ordanax/arch/master/attach/grub
 sudo mv -f grub /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 read -p "Введите имя пользователя: " username
-echo -e '[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin' "$username" '--noclear %I $TERM' > override.conf
+sudo echo -e '[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin' "$username" '--noclear %I $TERM' > override.conf
 sudo mv -f override.conf /etc/systemd/system/getty@tty1.service.d/override.conf
 elif [[ $node_set == 0 ]]; then
   echo 'Пропускаем.'
-fi
-
-echo 'Установить conky?'
-read -p "1 - Да, 0 - Нет: " conky_set
-if [[ $conky_set == 1 ]]; then
-  sudo pacman -S conky conky-manager --noconfirm
-  wget git.io/conky.tar.gz
-  tar -xzf conky.tar.gz -C ~/
-elif [[ $conky_set == 0 ]]; then
-  echo 'Установка conky пропущена.'
 fi
 
 echo 'Включаем сетевой экран'
@@ -110,6 +116,5 @@ sudo systemctl enable ufw
 # Очистка
 rm -R ~/downloads/
 rm -rf ~/archuefi3.sh
-rm -rf ~/.aurlist.txt
 
 echo 'Установка завершена!'
