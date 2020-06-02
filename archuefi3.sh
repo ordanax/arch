@@ -49,11 +49,6 @@ if [[ $xfce_set == 1 ]]; then
   wget git.io/arch_logo.png
   sudo mv -f ~/downloads/arch_logo.png /usr/share/pixmaps/arch_logo.png
   
-  echo 'Сносим лишнее'
-  wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.xfce-delete-modules-list.txt
-  yay -Rs --noconfirm - < .xfce-delete-modules-list.txt
-  rm -rf .xfce-delete-modules-list.txt
-
   echo 'Ставим обои на рабочий стол'
   wget git.io/bg.jpg
   sudo rm -rf /usr/share/backgrounds/xfce/* #Удаляем стандартные обои
