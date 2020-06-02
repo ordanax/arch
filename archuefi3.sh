@@ -50,7 +50,7 @@ if [[ $xfce_set == 1 ]]; then
   sudo mv -f ~/downloads/arch_logo.png /usr/share/pixmaps/arch_logo.png
   
   echo 'Удаляем лишнее из xfce4'
-  sudo pacman -Rs xfburn orage parole mousepad xfce4-clipman-plugin xfce4-timer-plugin xfce4-time-out-plugin xfce4-artwork xfce4-taskmanager xfce4-smartbookmark-plugin xfce4-sensors-plugin xfce4-screenshooter xfce4-notes-plugin xfce4-netload-plugin xfce4-mpc-plugin xfce4-mount-plugin xfce4-mailwatch-plugin xfce4-genmon-plugin xfce4-fsguard-plugin xfce4-eyes-plugin xfce4-diskperf-plugin xfce4-dict xfce4-cpugraph-plugin xfce4-cpufreq-plugin
+  sudo pacman -Rs xfburn orage parole mousepad xfce4-appfinder xfce4-clipman-plugin xfce4-timer-plugin xfce4-time-out-plugin xfce4-artwork xfce4-taskmanager xfce4-smartbookmark-plugin xfce4-sensors-plugin xfce4-screenshooter xfce4-notes-plugin xfce4-netload-plugin xfce4-mpc-plugin xfce4-mount-plugin xfce4-mailwatch-plugin xfce4-genmon-plugin xfce4-fsguard-plugin xfce4-eyes-plugin xfce4-diskperf-plugin xfce4-dict xfce4-cpugraph-plugin xfce4-cpufreq-plugin
 
   echo 'Ставим обои на рабочий стол'
   wget git.io/bg.jpg
