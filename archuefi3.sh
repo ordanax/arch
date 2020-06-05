@@ -99,7 +99,7 @@ wget https://raw.githubusercontent.com/ordanax/arch/master/attach/grub
 sudo mv -f grub /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 read -p "Введите имя пользователя: " username
-sudo echo -e '[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin' "$username" '--noclear %I $TERM' > override.conf
+sudo echo -e '[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin' "$username" '--noclear %I $TERM' > ~/downloads/override.conf
 sudo mv -f ~/downloads/override.conf /etc/systemd/system/getty@tty1.service.d/override.conf
 elif [[ $node_set == 0 ]]; then
   echo 'Пропускаем.'
