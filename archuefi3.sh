@@ -38,6 +38,8 @@ if [[ $xfce_set == 1 ]]; then
   # Выгрузите архив в интернет и скорректируйте ссылку на свою.
   wget https://github.com/ordanax/arch/raw/master/attach/config.tar.gz
   sudo rm -rf ~/.config/xfce4/*
+  ls ~/.config/xfce4/*
+  read -n 1 -t 5 -p "Нажмите любую клавишу или подождите 5 секунд для продолжения..."
   sudo tar -xzf config.tar.gz -C ~/
   echo 'Удаление тем по умолчанию'
   sudo rm -rf /usr/share/themes/*
