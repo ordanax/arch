@@ -6,5 +6,5 @@ hunspell-ru
 pamac-aur-git
 megasync-nopdfium
 trello
-minder-git
 xorg-xkill
+ttf-symbola
