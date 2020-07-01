@@ -106,6 +106,10 @@ elif [[ $node_set == 0 ]]; then
   echo 'Пропускаем.'
 fi
 
+# Подключаем zRam
+yay -S zramswap --noconfirm
+sudo systemctl enable zramswap.service
+
 echo 'Включаем сетевой экран'
 sudo ufw enable
 
