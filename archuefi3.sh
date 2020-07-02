@@ -18,10 +18,9 @@ echo 'Установить рекомендумые программы?'
 read -p "1 - Да, 0 - Нет: " prog_set
 if [[ $prog_set == 1 ]]; then
   #Можно заменить на pacman -Qqm > ~/.pacmanlist.txt
-  sudo pacman -S recoll chromium obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive neofetch vlc qbittorrent galculator telegram-desktop --noconfirm
+  sudo pacman -S recoll chromium flameshot obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive neofetch vlc qbittorrent galculator telegram-desktop --noconfirm
   yay -Syy
   yay -S cherrytree
-  yay -S flameshot-git --noconfirm
   yay -S xflux --noconfirm
   yay -S sublime-text-dev --noconfirm
   yay -S hunspell-ru --noconfirm
