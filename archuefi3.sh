@@ -19,10 +19,17 @@ read -p "1 - Да, 0 - Нет: " prog_set
 if [[ $prog_set == 1 ]]; then
   #Можно заменить на pacman -Qqm > ~/.pacmanlist.txt
   sudo pacman -S recoll chromium obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive neofetch vlc qbittorrent galculator telegram-desktop --noconfirm
-  wget https://raw.githubusercontent.com/ordanax/arch/master/attach/.aurlist.txt
   yay -Syy
-  yay -S --noconfirm - < .aurlist.txt
-  rm -rf ~/.aurlist.txt
+  yay -S cherrytree
+  yay -S flameshot-git --noconfirm
+  yay -S xflux --noconfirm
+  yay -S sublime-text-dev --noconfirm
+  yay -S hunspell-ru --noconfirm
+  yay -S pamac-aur-git --noconfirm
+  yay -S megasync-nopdfium --noconfirm
+  yay -S trello --noconfirm
+  yay -S xorg-xkill --noconfirm
+  yay -S ttf-symbola --noconfirm
 elif [[ $prog_set == 0 ]]; then
   echo 'Установка программ пропущена.'
 fi
