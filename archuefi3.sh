@@ -29,6 +29,7 @@ if [[ $prog_set == 1 ]]; then
   yay -S trello --noconfirm
   yay -S xorg-xkill --noconfirm
   yay -S ttf-symbola --noconfirm
+  yay -S ttf-clear-sans
 elif [[ $prog_set == 0 ]]; then
   echo 'Установка программ пропущена.'
 fi
