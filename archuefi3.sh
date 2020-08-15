@@ -20,16 +20,7 @@ if [[ $prog_set == 1 ]]; then
   #Можно заменить на pacman -Qqm > ~/.pacmanlist.txt
   sudo pacman -S recoll chromium flameshot obs-studio veracrypt vlc freemind filezilla gimp libreoffice libreoffice-fresh-ru kdenlive neofetch vlc qbittorrent galculator telegram-desktop --noconfirm
   yay -Syy
-  yay -S cherrytree
-  yay -S xflux --noconfirm
-  yay -S sublime-text-dev --noconfirm
-  yay -S hunspell-ru --noconfirm
-  yay -S pamac-aur-git --noconfirm
-  yay -S megasync-nopdfium --noconfirm
-  yay -S trello --noconfirm
-  yay -S xorg-xkill --noconfirm
-  yay -S ttf-symbola --noconfirm
-  yay -S ttf-clear-sans
+  yay -S yay -S xflux sublime-text-dev hunspell-ru pamac-aur-git megasync-nopdfium trello xorg-xkill ttf-symbola ttf-clear-sans --noconfirm
 elif [[ $prog_set == 0 ]]; then
   echo 'Установка программ пропущена.'
 fi
