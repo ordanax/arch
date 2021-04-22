@@ -19,9 +19,11 @@ Cостоит из 3 частей.
 2) Скачать и запустить скрипт командой:
 
    ```bash 
+   pacman -Syy
+   pacman -S wget
    wget git.io/archuefi1.sh && sh archuefi1.sh
    ```
-   или
+   или просто
    
    ```bash
    curl -OL git.io/archuefi1.sh && sh archuefi1.sh
