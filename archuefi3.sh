@@ -61,7 +61,7 @@ fi
 echo "Ставим i3 с моими настройками?"
 read -p "1 - Да, 2 - Нет: " vm_setting
 if [[ $vm_setting == 1 ]]; then
-    pacman -S pacman -S i3-wm polybar dmenu pcmanfm ttf-font-awesome feh gvfs udiskie xorg-xbacklight ristretto tumbler compton jq --noconfirm
+    pacman -S i3-wm dmenu pcmanfm ttf-font-awesome feh gvfs udiskie xorg-xbacklight ristretto tumbler compton jq --noconfirm
     yay -S polybar ttf-weather-icons ttf-clear-sans
     wget https://github.com/ordanax/arch/raw/master/attach/config_i3wm.tar.gz
     sudo rm -rf ~/.config/i3/*
