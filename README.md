@@ -1,5 +1,5 @@
 ##############################################
-# ArchLinux Fast Install v3.0.0 (Актуализирован 2026)
+# ArchLinux Fast Install v3.2.0 (2026)
 ##############################################
 
 # Описание
@@ -9,6 +9,11 @@
 
 Cкрипт основан на чек листе ручной установке ArchLinux https://vk.cc/7JTg6U
 Этот скрипт работает с UEFI. Для работы с Legacy/BIOS используйте предыдущий скрипт https://github.com/ordanax/arch2018
+
+## Что нового в v3.2.0 (2026):
+- **Добавлена поддержка LUKS шифрования** (LVM on LUKS) - опционально при установке
+- Шифрование всей системы с автоматической настройкой GRUB, mkinitcpio hooks
+- LUKS2 с pbkdf2 для совместимости с GRUB (aes-xts-plain64, 512-bit key)
 
 ## Что нового в v3.0.0 (2026):
 - **Объединены archuefi1.sh и archuefi2.sh** в один файл `archuefi.sh`
@@ -89,7 +94,11 @@ Alex Creio https://vk.com/creio
 Telegram чат: https://t.me/linux4at
 
 # История изменений
-### 2025 ArchLinux Fast Install v3.0.0 
+### 2026 ArchLinux Fast Install v3.2.0
+- Добавлена опциональная поддержка LUKS шифрования (LVM on LUKS)
+- Обновлен скрипт archuefi.sh с выбором режима установки (обычный/шифрованный)
+
+### 2026 ArchLinux Fast Install v3.0.0 
 - Объединены archuefi1.sh и archuefi2.sh в archuefi.sh
 - Актуализация под Arch Wiki 2024-2025
 - Обновлены все устаревшие команды и пакеты
