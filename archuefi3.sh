@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # =============================================================================
-# Arch Linux Fast Install v3.0.0 - Часть 3: Настройка и программы
+# Arch Linux Fast Install v3.0.1 - Часть 3: Настройка и программы
 # Запускать ПОСЛЕ первой перезагрузки и входа в систему
 # =============================================================================
 
 set -e
 
 echo "╔════════════════════════════════════════════════════════════════════╗"
-echo "║     Arch Linux Fast Install v3.0.0 - Настройка системы             ║"
+echo "║     Arch Linux Fast Install v3.0.1 - Настройка системы             ║"
 echo "║     Установка программ и конфигурация                             ║"
 echo "╚════════════════════════════════════════════════════════════════════╝"
 echo ""
@@ -205,7 +205,7 @@ echo "Установить Conky?"
 read -p "1 - Да, 0 - Нет: " conky_set
 
 if [[ $conky_set == "1" ]]; then
-    sudo pacman -S --noconfirm conky conky-manager
+    sudo pacman -S --noconfirm conky conky-manager2
     
     if wget -q --spider https://raw.githubusercontent.com/ordanax/arch/master/attach/conky.tar.gz 2>/dev/null; then
         wget -q https://raw.githubusercontent.com/ordanax/arch/master/attach/conky.tar.gz

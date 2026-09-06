@@ -1,5 +1,5 @@
 ##############################################
-# ArchLinux Fast Install v3.2.0 (2026)
+# ArchLinux Fast Install v3.2.1 (2026)
 ##############################################
 
 # Описание
@@ -9,6 +9,20 @@
 
 Cкрипт основан на чек листе ручной установке ArchLinux https://vk.cc/7JTg6U
 Этот скрипт работает с UEFI. Для работы с Legacy/BIOS используйте предыдущий скрипт https://github.com/ordanax/arch2018
+
+## Что нового в v3.2.1 (2026):
+- **Исправления по результатам аудита** (сверка с Arch Wiki):
+- Исправлен `archuefi3.sh`: `conky-manager` отсутствует в официальных репозиториях (только AUR) - заменен на `conky-manager2`
+- Убраны неработающие ссылки `git.io` (сервис закрыт GitHub в 2022) - заменены на `raw.githubusercontent.com`
+- Убран лишний `hwclock --systohc` на живом окружении (по wiki выполняется внутри chroot)
+- Убран дублирующий `crypttab` при наличии `cryptdevice` в параметрах ядра (риск повторного запроса пароля LUKS)
+- sudo через `/etc/sudoers.d/10-wheel` вместо правки `/etc/sudoers`
+- Тип раздела LUKS: `8309` (Linux LUKS) вместо `30` (Linux LVM)
+- `root=/dev/mapper/vg0-root` вместо `/dev/vg0/root` (каноничный путь)
+- Параметры ядра cryptdevice только в `GRUB_CMDLINE_LINUX` (без дублирования в LINUX_DEFAULT)
+- `useradd` без устаревшей primary-группы `users`
+- Multilib через `sed` вместо дописывания секции в конец `pacman.conf`
+- PipeWire: включение socket-юнитов (`pipewire.socket`, `pipewire-pulse.socket`, `wireplumber`) по Arch Wiki
 
 ## Что нового в v3.2.0 (2026):
 - **Добавлена поддержка LUKS шифрования** (LVM on LUKS) - опционально при установке
@@ -37,19 +51,19 @@ Cкрипт основан на чек листе ручной установк�
    ```bash 
    pacman -Syy
    pacman -S wget
-   wget git.io/archuefi.sh && sh archuefi.sh
+wget https://raw.githubusercontent.com/ordanax/arch/master/archuefi.sh && sh archuefi.sh
    ```
    или просто
-   
+    
    ```bash
-   curl -OL git.io/archuefi.sh && sh archuefi.sh
+   curl -OL https://raw.githubusercontent.com/ordanax/arch/master/archuefi.sh && sh archuefi.sh
    ```
-   
+    
    Запустится установка базовой системы с XFCE.
-   
-3) После первой перезагрузки и входа в систему установите дополнительные программы:
+    
+ 3) После первой перезагрузки и входа в систему установите дополнительные программы:
    ```bash 
-   wget git.io/archuefi3.sh && sh archuefi3.sh
+   wget https://raw.githubusercontent.com/ordanax/arch/master/archuefi3.sh && sh archuefi3.sh
    ```
 
 # Структура скриптов
