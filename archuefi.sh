@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================================================
-# Arch Linux Fast Install v3.2.0 (Актуализирован 2024-2025)
+# Arch Linux Fast Install v3.2.1 (Актуализирован 2025-2026)
 # Быстрая установка Arch Linux с XFCE/LightDM + Опциональное LUKS шифрование
 # Автор: Алексей Бойко t.me/ordanax
 # =============================================================================
@@ -34,7 +34,7 @@ log_error() {
 }
 
 echo "╔════════════════════════════════════════════════════════════════════╗"
-echo "║     Arch Linux Fast Install v3.2.0 (UEFI) - 2025-2026              ║"
+echo "║     Arch Linux Fast Install v3.2.1 (UEFI) - 2025-2026              ║"
 echo "║     Базовая установка системы с опциональным LUKS шифрованием     ║"
 echo "╚════════════════════════════════════════════════════════════════════╝"
 echo ""
@@ -69,7 +69,7 @@ setfont cyr-sun16
 
 echo "⏰ Синхронизация системных часов..."
 timedatectl set-ntp true
-hwclock --systohc
+# hwclock --systohc выполняется ВНУТРИ chroot после настройки таймзоны (по Arch Wiki)
 
 echo ""
 echo "╔════════════════════════════════════════════════════════════════════╗"
@@ -108,7 +108,7 @@ if $USE_ENCRYPTION; then
         echo;
         echo t;
         echo 2;
-        echo 30;     # Тип: Linux LVM (или 8309 для LUKS)
+        echo 8309;   # Тип: Linux LUKS (8309; ранее 30/Linux LVM)
 
         echo w;      # Записать изменения
     ) | fdisk /dev/sda
@@ -276,14 +276,9 @@ echo "✅ Базовая система установлена"
 echo "📝 Генерация fstab..."
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Для шифрования добавляем crypttab
-if $USE_ENCRYPTION; then
-    echo "🔐 Настройка crypttab..."
-    # Получаем UUID зашифрованного раздела
-    CRYPT_UUID=$(blkid -s UUID -o value /dev/sda2)
-    echo "cryptlvm UUID=$CRYPT_UUID none luks" >> /mnt/etc/crypttab
-    log_success "crypttab настроен"
-fi
+# crypttab НЕ нужен: расшифровку выполняет параметр ядра cryptdevice=... на этапе
+# initramfs (см. GRUB_CMDLINE ниже). Дублирование crypttab + cryptdevice дало бы
+# повторный запрос пароля / ошибку systemd при загрузке (по Arch Wiki: LVM on LUKS).
 
 # Проверяем fstab
 cat /mnt/etc/fstab
@@ -305,7 +300,7 @@ if $USE_ENCRYPTION; then
     # Для шифрования используем encrypt и lvm2 hooks
     MKINITCPIO_HOOKS="base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck"
     CRYPT_UUID=$(blkid -s UUID -o value /dev/sda2)
-    GRUB_CMDLINE="cryptdevice=UUID=$CRYPT_UUID:cryptlvm root=/dev/vg0/root"
+    GRUB_CMDLINE="cryptdevice=UUID=$CRYPT_UUID:cryptlvm root=/dev/mapper/vg0-root"
 else
     MKINITCPIO_HOOKS="base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems fsck"
     GRUB_CMDLINE=""
@@ -377,8 +372,8 @@ if $USE_ENCRYPTION; then
     sed -i 's/^#GRUB_ENABLE_CRYPTODISK=.*/GRUB_ENABLE_CRYPTODISK=y/' /etc/default/grub
     sed -i 's/^GRUB_ENABLE_CRYPTODISK=.*/GRUB_ENABLE_CRYPTODISK=y/' /etc/default/grub
     
-    # Добавляем параметры ядра для расшифровки
-    sed -i "s|^GRUB_CMDLINE_LINUX_DEFAULT=.*|GRUB_CMDLINE_LINUX_DEFAULT=\"$GRUB_CMDLINE quiet\"|" /etc/default/grub
+    # Добавляем параметры ядра для расшифровки (только GRUB_CMDLINE_LINUX,
+    # чтобы параметры не дублировались в LINUX_DEFAULT)
     sed -i "s|^GRUB_CMDLINE_LINUX=.*|GRUB_CMDLINE_LINUX=\"$GRUB_CMDLINE\"|" /etc/default/grub
     
     echo "GRUB настроен для шифрования"
@@ -402,7 +397,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # --- Пользователь ---
 echo "👤 Создание пользователя: $username"
-useradd -m -g users -G wheel,power,storage,audio,video,input -s /bin/bash "$username"
+useradd -m -G wheel,power,storage,audio,video,input -s /bin/bash "$username"
 
 echo "🔐 Установите пароль для ROOT:"
 passwd
@@ -412,12 +407,13 @@ passwd "$username"
 
 # --- Sudo ---
 echo "🔓 Настройка sudo..."
-echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
+echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/10-wheel
+chmod 440 /etc/sudoers.d/10-wheel
 
 # --- Multilib ---
 echo "📦 Включение репозитория multilib..."
-echo '[multilib]' >> /etc/pacman.conf
-echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+# Секция [multilib] уже есть в pacman.conf (закомментирована) - просто раскомментируем
+sed -i 's/^#\[multilib\]/[multilib]/; s/^#Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/' /etc/pacman.conf
 pacman -Syy
 
 # --- Сеть ---
@@ -452,7 +448,9 @@ pacman -S ttf-liberation ttf-dejavu noto-fonts noto-fonts-cjk --noconfirm
 # --- PipeWire (вместо устаревшего PulseAudio) ---
 echo "🔊 Установка PipeWire (звук)..."
 pacman -S pipewire pipewire-pulse pipewire-alsa pavucontrol wireplumber --noconfirm
-systemctl --global enable pipewire pipewire-pulse
+# PipeWire: включаем socket-юниты (запуск по требованию, по Arch Wiki).
+# --global из chroot корректно настраивает всех будущих пользователей.
+systemctl --global enable pipewire.socket pipewire-pulse.socket wireplumber
 
 # --- Завершение ---
 echo ""
@@ -477,7 +475,7 @@ fi
 echo "  4. Перезагрузитесь: reboot"
 echo ""
 echo "После входа в систему установите дополнительные программы:"
-echo "  wget git.io/archuefi3.sh && sh archuefi3.sh"
+echo "  wget https://raw.githubusercontent.com/ordanax/arch/master/archuefi3.sh && sh archuefi3.sh"
 echo ""
 
 rm /install_chroot.sh
@@ -509,5 +507,5 @@ fi
 echo "  reboot"
 echo ""
 echo "После первого входа в систему установите дополнительные программы:"
-echo "  wget git.io/archuefi3.sh && sh archuefi3.sh"
+echo "  wget https://raw.githubusercontent.com/ordanax/arch/master/archuefi3.sh && sh archuefi3.sh"
 echo ""
